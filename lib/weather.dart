@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:weather/views/get_started.dart';
+import 'package:get/get.dart';
+import 'package:weather/utils/theme/theme.dart';
+
+import 'screens/home_screen.dart';
 
 class Weather extends StatelessWidget {
   const Weather({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Weather App',
-      home: GetStarted(),
+      theme: TaiyoTheme.lightTheme,
+      themeMode: ThemeMode.system,
+      darkTheme: TaiyoTheme.darkTheme,
+      home: const HomeScreen(),
     );
   }
 }
