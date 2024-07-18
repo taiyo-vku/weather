@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:weather/models/weather_data_current.dart';
+import 'package:weather/utils/constants/app_colors.dart';
 
 class CurrentWeatherWidget extends StatelessWidget {
   const CurrentWeatherWidget({super.key, required this.weatherDataCurrent});
@@ -7,8 +9,125 @@ class CurrentWeatherWidget extends StatelessWidget {
   final WeatherDataCurrent weatherDataCurrent;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('${weatherDataCurrent.current.windSpeed}'),
+    return Column(
+      children: [
+        // tempeture area
+        tempetureAreaWidget(),
+        const SizedBox(height: 20),
+        // more details
+        currentWeatherMoreDetailsWidget(),
+      ],
+    );
+  }
+
+  Widget currentWeatherMoreDetailsWidget() {
+    return Column(
+      children: [
+        // icons
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Container(
+              height: 60,
+              width: 60,
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: AppColors.cardColor,
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Image.asset('assets/icons/windspeed.png'),
+            ),
+            Container(
+              height: 60,
+              width: 60,
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: AppColors.cardColor,
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Image.asset('assets/icons/clouds.png'),
+            ),
+            Container(
+              height: 60,
+              width: 60,
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: AppColors.cardColor,
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Image.asset('assets/icons/humidity.png'),
+            ),
+          ],
+        ),
+        const SizedBox(height: 10),
+        // description
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            SizedBox(
+              height: 20,
+              width: 60,
+              child: Text(
+                '${weatherDataCurrent.current.windSpeed}km/h',
+                style: Theme.of(Get.context!).textTheme.labelMedium,
+                textAlign: TextAlign.center,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+              width: 60,
+              child: Text(
+                '${weatherDataCurrent.current.clouds}%',
+                style: Theme.of(Get.context!).textTheme.labelMedium,
+                textAlign: TextAlign.center,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+              width: 60,
+              child: Text(
+                '${weatherDataCurrent.current.humidity}%',
+                style: Theme.of(Get.context!).textTheme.labelMedium,
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget tempetureAreaWidget() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        Image.asset(
+          'assets/weather/${weatherDataCurrent.current.weather![0].icon}.png',
+          width: 80,
+          height: 80,
+        ),
+        Container(
+          height: 50,
+          width: 1,
+          color: AppColors.dividerLine,
+        ),
+        RichText(
+          text: TextSpan(children: [
+            TextSpan(
+                text: '${weatherDataCurrent.current.temp!.toInt()}°C',
+                style: Theme.of(Get.context!)
+                    .textTheme
+                    .headlineMedium!
+                    .copyWith(fontSize: 60)),
+            TextSpan(
+                text: '${weatherDataCurrent.current.weather![0].description}',
+                style: Theme.of(Get.context!)
+                    .textTheme
+                    .bodySmall!
+                    .copyWith(color: Colors.grey)),
+          ]),
+        ),
+      ],
     );
   }
 }
