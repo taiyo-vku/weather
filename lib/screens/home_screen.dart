@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:weather/controllers/global_controller.dart';
-import 'package:weather/screens/widgets/header_widget.dart';
+import 'package:weather/widgets/current_weather_widget.dart';
+import 'package:weather/widgets/header_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -25,8 +26,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 )
               : ListView(
                   scrollDirection: Axis.vertical,
-                  children: const [
-                    HeaderWidget(),
+                  children: [
+                    const HeaderWidget(),
+
+                    /// for our current temp['current']
+                    CurrentWeatherWidget(
+                      weatherDataCurrent: globalController.getData().getCurrentWeather(),
+                    ),
                   ],
                 ),
         ),

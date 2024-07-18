@@ -41,52 +41,14 @@ dependencies:
  
   # TODO :intl
   intl: ^0.19.0
-  
-  # TODO : riverpod
-  riverpod: ^2.5.1
-
-  # TODO : Url Launcher
-  url_launcher: ^6.3.0
-  
-  # TODO : Connetivity Plus
-  connectivity_plus: ^5.0.2
-
-  # TODO : Sizer
-  sizer: ^2.0.15
-  
-  # TODO : State Notifier
-  state_notifier: ^1.0.0
-
-  # TODO : Flutter SVG
-  flutter_svg: ^2.0.10+1
-
-  # TODO : Meta
-  meta: ^1.12.0
-
-  # TODO : Collection
-  collection: ^1.18.0
-
-  # TODO : Shared Preferences
-  shared_preferences: ^2.2.3
-  equatable: ^2.0.5
+ 
+  # TODO : State Management
   get: ^4.6.6
-  device_preview: ^1.2.0
+
+  # TODO : Location
   geolocator: ^12.0.0
   geocoding: ^3.0.0
-  permission_handler: ^11.3.1
-
-
-
-  # TODO 
-
-  # TODO
-  # TODO
-  # TODO
-  # TODO
-
   
-
-
 
 dev_dependencies:
   flutter_test:
@@ -118,6 +80,8 @@ flutter:
   assets:
     - assets/
     - assets/fonts/
+    - assets/icons/
+    - assets/weather/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
