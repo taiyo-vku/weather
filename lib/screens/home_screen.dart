@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:weather/controllers/global_controller.dart';
 import 'package:weather/widgets/current_weather_widget.dart';
 import 'package:weather/widgets/header_widget.dart';
+import 'package:weather/widgets/hourly_weather_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -31,8 +32,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     /// for our current temp['current']
                     CurrentWeatherWidget(
-                      weatherDataCurrent: globalController.getData().getCurrentWeather(),
+                      weatherDataCurrent:
+                          globalController.getData().getCurrentWeather(),
                     ),
+
+                    // for our hourly
+                    HourlyWeatherWidget(
+                        weatherDataHourly:
+                            globalController.getData().getHourlyWeather()),
                   ],
                 ),
         ),
