@@ -26,3 +26,4 @@ class Temp {
         'morn': morn,
       };
 }
+
