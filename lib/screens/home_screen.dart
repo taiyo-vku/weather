@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: SafeArea(
         child: Obx(
-          () => globalController.checLoading().isTrue
+          () => globalController.checkLoading().isTrue
               ? const Center(
                   child: CircularProgressIndicator(),
                 )

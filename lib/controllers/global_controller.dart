@@ -9,7 +9,7 @@ class GlobalController extends GetxController {
   final RxDouble _longitude = 0.0.obs;
 
   // instance for them to be called
-  RxBool checLoading() => _isLoading;
+  RxBool checkLoading() => _isLoading;
   RxDouble getLattiude() => _latitude;
   RxDouble getLongitude() => _longitude;
 
@@ -21,7 +21,7 @@ class GlobalController extends GetxController {
     super.onInit();
   }
 
-  getLocation() async {
+  Future<dynamic> getLocation() async {
     bool isServiceEnabled;
     LocationPermission locationPermission;
 
@@ -51,6 +51,7 @@ class GlobalController extends GetxController {
       // update our lattiude and longitude
       _latitude.value = value.latitude;
       _longitude.value = value.longitude;
+      _isLoading.value = false;
     });
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
+import 'package:get/get.dart';
 import 'package:weather/controllers/global_controller.dart';
 
 class HeaderWidget extends StatefulWidget {
@@ -15,12 +16,17 @@ class _HeaderWidgetState extends State<HeaderWidget> {
 
   @override
   void initState() {
-    getAddress(globalController.getLattiude().value , globalController.getLongitude().value);
+    getAddress(globalController.getLattiude().value,
+        globalController.getLongitude().value);
     super.initState();
   }
 
   getAddress(lat, lon) async {
     List<Placemark> placemark = await placemarkFromCoordinates(lat, lon);
+    Placemark place = placemark[0];
+    setState(() {
+      city = place.subLocality!;
+    });
   }
 
   @override
@@ -28,7 +34,17 @@ class _HeaderWidgetState extends State<HeaderWidget> {
     return Column(
       children: [
         Container(
-          child: Text(city),
+          margin: const EdgeInsets.only(top: 20),
+          padding: const EdgeInsets.all(10),
+          child: city.isEmpty
+              ? Text(
+                  'Header Widget',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyLarge!
+                      .copyWith(fontSize: 20),
+                )
+              : Text(city),
         ),
       ],
     );
