@@ -13,7 +13,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: TaiyoTheme.lightTheme,
       themeMode: ThemeMode.system,
-      darkTheme: TaiyoTheme.darkTheme,
+      darkTheme: TaiyoTheme.lightTheme,
       home: const HomeScreen(),
     );
   }
