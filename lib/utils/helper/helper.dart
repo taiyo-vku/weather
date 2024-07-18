@@ -1,4 +1,3 @@
-class Helper{
-
+class Helper {
   // Change Nagivation
 }

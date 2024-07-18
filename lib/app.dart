@@ -4,8 +4,8 @@ import 'package:weather/utils/theme/theme.dart';
 
 import 'screens/home_screen.dart';
 
-class Weather extends StatelessWidget {
-  const Weather({super.key});
+class App extends StatelessWidget {
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {

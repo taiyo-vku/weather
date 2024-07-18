@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather/weather.dart';
+import 'package:weather/app.dart';
 
 void main() {
   // if (Platform.isAndroid || Platform.isIOS) {
@@ -10,5 +10,5 @@ void main() {
   //   builder: (context) => const Weather(),
   // ));
 
-  runApp(const Weather());
+  runApp(const App());
 }
