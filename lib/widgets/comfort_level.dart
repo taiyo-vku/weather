@@ -58,7 +58,7 @@ class ComfortLevel extends StatelessWidget {
                     text: TextSpan(
                       children: [
                         TextSpan(
-                          text: 'Feels Like',
+                          text: 'Feels Like ',
                           style: Theme.of(context).textTheme.bodyMedium,
                         ),
                         TextSpan(
@@ -78,7 +78,7 @@ class ComfortLevel extends StatelessWidget {
                     text: TextSpan(
                       children: [
                         TextSpan(
-                          text: 'uvIndex',
+                          text: 'uvIndex ',
                           style: Theme.of(context).textTheme.bodyMedium,
                         ),
                         TextSpan(
