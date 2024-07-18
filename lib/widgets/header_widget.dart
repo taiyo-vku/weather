@@ -35,10 +35,10 @@ class _HeaderWidgetState extends State<HeaderWidget> {
     return Column(
       children: [
         Container(
-          margin: const EdgeInsets.only(left: 20, right: 20, top: 50),
+          margin: const EdgeInsets.only(left: 20, right: 20),
           alignment: Alignment.topLeft,
           child: Text(
-            city.isEmpty ? 'Header Widget' : city,
+            city,
             style:
                 Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 20),
           ),
